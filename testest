@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class BitCount {
+
+
+	/**
+	 * 정수의 비트 표현에 들어있는 1의 개수를 알아냄
+	 * @param input 정수
+	 * @return count 정수를 비트열로 표현할 때 나타나는 1의 개수
+	 */
+	public static int bitCount(int input) {
+		int count = 0;
+		int mask = 1 << 31;
+
+		while (true){
+			if (mask == 0){
+				break;
+			}
+			if((mask & input) == 0){
+
+			}else {
+				count++;
+			}
+
+			mask = mask >>> 1;
+		}
+
+		return count;
+	}
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		System.out.println("32-bit integer: ");
+		int a = in.nextInt();
+		int count = bitCount(a);
+		System.out.printf("%d has %d '1's", a, count);
+		in.close();
+	}
+}
